@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Thời tiết hôm nay</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body class="clear">
+        <main class="app">
+            <div class="account">
+                <button id="account-btn" class="account-btn" type="button">👤 Đăng nhập</button>
+
+                <div id="auth-panel" class="auth-panel" hidden>
+                    <div id="auth-form">
+                        <h2>Tài khoản</h2>
+                        <input id="email" type="email" placeholder="Email">
+                        <input id="password" type="password" placeholder="Mật khẩu (ít nhất 6 ký tự)">
+                        <div class="auth-buttons">
+                            <button id="login-btn" type="button">Đăng nhập</button>
+                            <button id="signup-btn" type="button">Đăng ký</button>
+                        </div>
+                        <p id="auth-message" class="auth-message"></p>
+                    </div>
+
+                    <div id="user-box" class="user-box" hidden>
+                        <span>Chào, <strong id="user-email"></strong></span>
+                        <button id="logout-btn" type="button">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+
+            <header class="header">
+                <h1>Hôm nay thời tiết thế nào</h1>
+                <p class="subtitle">Thời tiết hôm nay và dự báo 5 ngày tới</p>
+            </header>
+
+            <section class="search">
+                <input id="city-input" type="text" placeholder="Nhập tên thành phố, ví dụ: Hà Nội">
+                <button id="search-btn">Tìm</button>
+            </section>
+
+            <section class="quick-cities">
+                <button class="chip" data-city="Hanoi" data-name="Hà Nội">Hà Nội</button>
+                <button class="chip" data-city="Ho Chi Minh City" data-name="Thành phố Hồ Chí Minh">TP. Hồ Chí Minh</button>
+                <button class="chip" data-city="Da Nang" data-name="Đà Nẵng">Đà Nẵng</button>
+                <button class="chip" data-city="Ha Long" data-name="Thành Phố Hạ Long">Hạ Long</button>
+                <div id="fav-list" class="fav-list"></div>
+            </section>
+
+            <p id="message" class="message" hidden></p>
+
+            <section id="current" class="card current" hidden>
+                <button id="fav-btn" class="fav-btn" type="button" title="Lưu vào yêu thích" hidden>☆</button>
+                <h2 id="city-name"></h2>
+                <p id="update-time" class="muted"></p>
+
+                <div class="current-main">
+                    <span id="current-icon" class="big-icon"></span>
+                    <span id="current-temp" class="big-temp"></span>
+                </div>
+
+                <p id="current-text" class="current-text"></p>
+                <p id="advice" class="advice"></p>
+
+                <div class="details">
+                    <div class="detail">
+                        <span class="muted">Cảm giác như</span>
+                        <strong id="feels-like"></strong>
+                    </div>
+                    <div class="detail">
+                        <span class="muted">Độ ẩm</span>
+                        <strong id="humidity"></strong>
+                    </div>
+                    <div class="detail">
+                        <span class="muted">Gió</span>
+                        <strong id="wind"></strong>
+                    </div>
+                    <div class="detail">
+                        <span class="muted">Chỉ số UV</span>
+                        <strong id="uv"></strong>
+                    </div>
+                </div>
+            </section>
+
+            <section id="forecast" class="forecast" hidden>
+                <h2>Trong 5 ngày tới sẽ thế nào</h2>
+                <div id="forecast-list" class="forecast-list"></div>
+            </section>
+
+            <footer class="footer">
+                <p>Dữ liệu thời tiết: <a href="https://open-meteo.com" target="_blank">Open-Meteo.com</a></p>
+                <p>Đồ án thực tập của Quỳnh Anh</p>
+            </footer>
+        </main>
+
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
